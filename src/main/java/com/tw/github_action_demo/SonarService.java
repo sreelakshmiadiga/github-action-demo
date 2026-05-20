@@ -40,13 +40,13 @@ public class SonarService {
         return "Hello " + NAME;
     }
 
-    private String password;
+    private String credential;
 
-    public String getPassword() {
-        return password;
+    public String getCredential() {
+        return credential;
     }
 
-    public void setPassword(final String password) {
-        this.password = password;
+    public void setCredential(final String credential) {
+        this.credential = credential;
     }
 }
