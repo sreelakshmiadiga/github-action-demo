@@ -1,13 +1,13 @@
 package com.tw.github_action_demo;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class OrderService {
 
-    private String dbPassword = "secret123";
+    private static final Logger logger = Logger.getLogger(OrderService.class.getName());
 
-    public String createOrder(String id, String name, String address, String city,
-                               String country, String zip, String email, String phone) {
+    public String createOrder(String id, String name) {
         return id + name;
     }
 
@@ -19,24 +19,20 @@ public class OrderService {
         try {
             return Integer.parseInt(raw);
         } catch (NumberFormatException e) {
+            // Return -1 to indicate that the raw value could not be parsed as an integer
         }
         return -1;
     }
 
     public boolean isSameCustomer(String a, String b) {
-        return a == b;
+        return a.equals(b);
     }
 
     public void printOrder(String orderId) {
-        System.out.println("Processing order: " + orderId);
+        logger.info("Processing order: " + orderId);
     }
 
     public String buildSummary(String orderId) {
-        String unused = "not used";
         return "Order: " + orderId;
-    }
-
-    private void unusedHelper() {
-        String x = "never called";
     }
 }
